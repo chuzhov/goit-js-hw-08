@@ -1,1 +1,0 @@
-{"mappings":"AAIAA,MAAM","sources":["src/js/01-gallery.js"],"sourcesContent":["// Add imports above this line\nimport { galleryItems } from './gallery-items';\n// Change code below this line\n\nalert(\"Test\");\n"],"names":["alert"],"version":3,"file":"01-gallery.4f4aa2aa.js.map"}
