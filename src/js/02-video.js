@@ -9,12 +9,13 @@ const iframe = document.querySelector('iframe');
 const player = new Player(iframe);
 player.setCurrentTime(vimeoTimeOffset);
 
-window.addEventListener("beforeunload", ()=>player.pause())
+document.addEventListener("visibilitychange", (event) => {
+    if (document.visibilityState !== 'visible') player.pause();
+  });
 
 const throttledTimeUpdateInStorege = throttle(UpdateTimeInStorage, 1000);
 
 player.on('timeupdate', throttledTimeUpdateInStorege);
-if (vimeoTimeOffset>0) player.play();
 
 function UpdateTimeInStorage({seconds}) {
     saveToLocalStorage(VIMEO_CURRENT_TIME_KEY, seconds);
