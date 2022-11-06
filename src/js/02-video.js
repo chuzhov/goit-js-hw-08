@@ -14,8 +14,12 @@ if (vimeoTimeOffset > 0) {
   toastr.info("Playback restored.");
 }
 
+//вимикаємо відео при втраті фокуса, та вмікаємо при поверненні до вкладки
 document.addEventListener("visibilitychange", (event) => {
-    if (document.visibilityState !== 'visible') player.pause();
+    if (document.visibilityState !== 'visible') 
+      {player.pause();}
+    else 
+      {player.play()};
   });
 
 const throttledTimeUpdateInStorege = throttle(UpdateTimeInStorage, 1000);
